@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= pageTitle %>
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+</head>
+
+<body>
+    <%- include('./navigation.ejs') %>
+    <div class="row">
+            <div class="col offset-4 col-md-4 align-self-center">
+                <form method="POST" action="/admin/post" enctype="multipart/form-data">
+                    <input type="hidden" name="_csrf" value="<%= token %>">
+                    <div class="form-group">
+                        <label>Title:</label>
+                        <input type="text" class="form-control" name="title"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <input type="text" class="form-control" name="description"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Price:</label>
+                        <input type="text" class="form-control" name="price"/>
+                    </div>
+                    <div class="form-group">
+                        <label>File:</label>
+                        <input type="file" class="form-control" name="image" />
+                    </div>
+                    <button class="btn btn-primary"> Submit </button>
+                </form>
+            </div>
+        </div>
+</body>
